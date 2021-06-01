@@ -3,4 +3,4 @@ function posts(state = [], action) {
   return state
 }
 
-export default comments
+export default posts
