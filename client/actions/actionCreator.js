@@ -1,23 +1,25 @@
-export function increment(index) {
+import { actionConstants } from './actionConstants'
+
+export function increment(postIndex) {
   return {
-    type: 'INCREMENT_LIKES',
-    index,
+    type: actionConstants.incrementLikes,
+    index: postIndex,
   }
 }
 
 export function addComment(postId, author, comment) {
   return {
-    type: 'ADD_COMMENT',
+    type: actionConstants.addComment,
     postId,
     author,
     comment,
   }
 }
 
-export function removeComment(postId, i) {
+export function removeComment(postId, commentIndex) {
   return {
-    type: 'REMOVE_COMMENT',
-    i,
+    type: actionConstants.removeComment,
+    index: commentIndex,
     postId,
   }
 }

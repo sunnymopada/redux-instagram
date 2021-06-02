@@ -1,15 +1,19 @@
+import { actionConstants } from '../actions/actionConstants'
+
 function postComments(state = [], action) {
   switch (action.type) {
-    case 'ADD_COMMENT':
+    case actionConstants.addComment:
+      const { author, comment } = action
       return [
         ...state,
         {
-          user: action.author,
-          text: action.comment,
+          user: author,
+          text: comment,
         },
       ]
-    case 'REMOVE_COMMENT':
-      return [...state.slice(0, action.i), ...state.slice(action.i + 1)]
+    case actionConstants.removeComment:
+      const { index: commentIndex } = action
+      return [...state.slice(0, commentIndex), ...state.slice(commentIndex + 1)]
     default:
       return state
   }
@@ -17,10 +21,11 @@ function postComments(state = [], action) {
 }
 
 function comments(state = [], action) {
-  if (typeof action.postId !== 'undefined') {
+  const { postId } = action
+  if (typeof postId !== 'undefined') {
     return {
       ...state,
-      [action.postId]: postComments(state[action.postId], action),
+      [postId]: postComments(state[postId], action),
     }
   }
   return state

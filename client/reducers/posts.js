@@ -1,11 +1,13 @@
+import { actionConstants } from '../actions/actionConstants'
+
 function posts(state = [], action) {
   switch (action.type) {
-    case 'INCREMENT_LIKES':
-      const i = action.index
+    case actionConstants.incrementLikes:
+      const { index: postIndex } = action
       return [
-        ...state.slice(0, i),
-        { ...state[i], likes: state[i].likes + 1 },
-        ...state.slice(i + 1),
+        ...state.slice(0, postIndex),
+        { ...state[postIndex], likes: state[postIndex].likes + 1 },
+        ...state.slice(postIndex + 1),
       ]
     default:
       return state

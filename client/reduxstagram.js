@@ -12,7 +12,10 @@ import Single from './components/Single'
 import PhotoGrid from './components/PhotoGrid'
 
 // Import css
-import css from './styles/style.styl'
+import './styles/animations.css'
+import './styles/normalize.css'
+import './styles/typography.css'
+import './styles/style.css'
 
 const router = (
   <Provider store={store}>
