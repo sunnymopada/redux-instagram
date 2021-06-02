@@ -1,38 +1,46 @@
 import React from 'react'
 
-const Comments = React.createClass({
-  renderComment(comment, i) {
+class Comments extends React.Component {
+  constructor(props) {
+    super(props)
+    this.renderComment = this.renderComment.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  renderComment(comment, index) {
+    const { params, removeComment } = this.props
+    const { postId } = params
     return (
-      <div className='comment' key={i}>
+      <div className='comment' key={index}>
         <p>
           <strong>{comment.user}</strong>
           {comment.text}
           <button
             className='remove-comment'
-            onClick={this.props.removeComment.bind(
-              null,
-              this.props.params.postId,
-              i
-            )}
+            onClick={removeComment.bind(null, postId, index)}
           >
             &times;
           </button>
         </p>
       </div>
     )
-  },
+  }
+
   handleSubmit(e) {
     e.preventDefault()
-    const { postId } = this.props.params
+    const { params, addComment } = this.props
+    const { postId } = params
     const author = this.refs.author.value
     const comment = this.refs.comment.value
-    this.props.addComment(postId, author, comment)
+    addComment(postId, author, comment)
     this.refs.commentForm.reset()
-  },
+  }
+
   render() {
+    const { postComments } = this.props
     return (
       <div className='comments'>
-        {this.props.postComments.map(this.renderComment)}
+        {postComments.map(this.renderComment)}
         <form
           ref='commentForm'
           className='comment-form'
@@ -44,7 +52,7 @@ const Comments = React.createClass({
         </form>
       </div>
     )
-  },
-})
+  }
+}
 
 export default Comments

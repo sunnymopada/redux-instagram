@@ -1,8 +1,8 @@
 # Learn Redux
 
-This is Practise app while learning redux with learnredux.com
+Hey!
 
-A simple React + Redux implementation. This will be turned into a free video series once the app is totally fleshed out.
+Incase if you are going through this repo code, Many clean code practises and naming conventions are not followed. This is Practise app while learning redux with learnredux.com
 
 ## Running
 

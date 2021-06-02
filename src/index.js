@@ -1,12 +1,10 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { render } from 'react-dom'
-// import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 import store, { history } from './store'
 
-// Import Components
 import App from './components/App'
 import Single from './components/Single'
 import PhotoGrid from './components/PhotoGrid'
