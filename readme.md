@@ -1,8 +1,8 @@
-# Learn Redux
+# Redux Instagram
 
-Hey!
+Hello!
 
-Incase if you are going through this repo code, Many clean code practises and naming conventions are not followed. This is Practise app while learning redux with learnredux.com
+Incase if you are going through this repo code, Many clean code practises and naming conventions are not followed. This is Practise app while learning redux with [learnredux.com](https://learnredux.com)
 
 ## Running
 
